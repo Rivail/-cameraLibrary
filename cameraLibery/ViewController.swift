@@ -1,4 +1,4 @@
- 
+//Importando fotos da Bilioteca ou câmera
 
 import UIKit
 
