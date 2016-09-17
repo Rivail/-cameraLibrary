@@ -1,23 +1,34 @@
-//
-//  ViewController.swift
-//  cameraLibery
-//
-//  Created by Riva on 16/09/16.
-//  Copyright © 2016 Riva. All rights reserved.
-//
+ 
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController,UINavigationControllerDelegate,UIImagePickerControllerDelegate {
+    
+    @IBOutlet weak var minhaImagem: UIImageView!
+    @IBAction func clicaBotao(sender: AnyObject) {
+        
+        let pegaImagem = UIImagePickerController()
+        pegaImagem.delegate = self
+        
+        pegaImagem.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        pegaImagem.allowsEditing = true
+        
+         self.presentViewController(pegaImagem, animated: true, completion: nil)
+        
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        
+        }
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo:[NSObject]!) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        minhaImagem.image = image
     }
 
 
